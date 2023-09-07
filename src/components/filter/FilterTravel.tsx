@@ -8,12 +8,17 @@ import Button from "../UI/button/button/Button";
 const FilterTravel = () => {
   const [advancedFilter, setAdvancedFilter] = useState(false);
   return (
-    <div className="w-full h-2/3 ">
-      <label>Select country where you want to spend your holiday</label>
-      <div className=" flex justify-center gap-12 ">
-        <SelectCountry />
+    <div className="w-full h-2/3 text-[#4682A9]">
+      {/* <div className=" flex justify-center gap-12 "> */}
+      <div className="flex flex-col flex-wrap content-center gap-6 my-6">
+        <label className="font-bold ">
+          Choose the destination for your holiday.
+        </label>
+        <div className="flex flex-wrap justify-evenly">
+          <SelectCountry />
+          <Date />
+        </div>
         <SliderTravel />
-        <Date />
       </div>
       {advancedFilter ? (
         <Button

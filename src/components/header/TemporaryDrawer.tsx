@@ -35,7 +35,7 @@ export default function TemporaryDrawer() {
 
   const list = (anchor: Anchor) => (
     <Box
-      className="bg-[#176B87] "
+      className="bg-[#4682A9] font-bold"
       sx={{ width: "auto", height: "100%" }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
@@ -50,7 +50,7 @@ export default function TemporaryDrawer() {
           "FAQ",
         ].map((text, index) => (
           <ListItem key={text + "-" + index} disablePadding>
-            <ListItemButton>
+            <ListItemButton className="font-bold">
               <ListItemText className="font-bold" primary={text} />
             </ListItemButton>
           </ListItem>
@@ -64,7 +64,7 @@ export default function TemporaryDrawer() {
       {(["right"] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)} className="text-black">
-            <MenuIcon />
+            <MenuIcon className="text-[#EEEEEE]" />
           </Button>
           <Drawer
             anchor={anchor}

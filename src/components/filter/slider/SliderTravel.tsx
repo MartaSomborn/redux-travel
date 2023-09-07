@@ -12,7 +12,8 @@ const SliderTravel = () => {
     setValue(newValue as number[]);
   };
   return (
-    <div className="w-2/4">
+    // <div className="w-2/4">
+    <div>
       <Slider
         getAriaLabel={() => ""}
         value={value}

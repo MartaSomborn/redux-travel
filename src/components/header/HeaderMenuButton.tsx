@@ -6,7 +6,7 @@ const HeaderMenuButton = () => {
       <div>
         <TemporaryDrawer />
       </div>
-      <ul className="flex gap-12 max-md:hidden text-white font-bold">
+      <ul className="flex gap-12 max-md:hidden text-[#EEEEEE] font-bold">
         <li className="cursor-pointer">
           <a>About Us</a>
         </li>

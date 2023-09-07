@@ -3,7 +3,7 @@ const Button = (props: any) => {
 
   return (
     <button
-      className="bg-[#64CCC5] p-3 rounded-3xl w-52 cursor-pointer text-white font-bold hover:bg-[#4682A9]"
+      className="bg-[#64CCC5] p-3 rounded-3xl w-52 cursor-pointer text-[#EEEEEE] font-bold hover:bg-[#4682A9]"
       onClick={props.onClick}
     >
       {props.title}
