@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Card from "../../UI/card/Card";
 
 const HolidayItem = (props: any) => {
@@ -5,9 +6,11 @@ const HolidayItem = (props: any) => {
     <Card className="max-w-sm m-4 ">
       <li>
         <div>
-          <h3 className="font-bold mb-4">{props.name}</h3>
-          <img className="h-40 w-full mb-4" src={props.image} />
-          <div>{props.description}</div>
+          <Link to={`/destination/${props.name}`}>
+            <h3 className="font-bold mb-8 mt-4">{props.name}</h3>
+            <img className="h-40 w-full mb-4" src={props.image} />
+            <div>{props.description}</div>
+          </Link>
         </div>
       </li>
     </Card>
