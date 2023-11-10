@@ -11,6 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-scroll";
 
 type Anchor = "right";
 
@@ -43,16 +44,27 @@ export default function TemporaryDrawer() {
     >
       <List className="text-[#EEEEEE] font-bold">
         {[
-          "About Us",
-          "Dream Destinations",
-          "Your magical Holiday",
-          "Reviews",
-          "FAQ",
+          {
+            title: "About Us",
+            link: "main-video",
+          },
+          { title: "Dream Destinations", link: "dream-destination" },
+          { title: "Your magical Holiday", link: "magical-holiday" },
+          { title: "Reviews", link: "review" },
+          { title: "FAQ", link: "faq" },
         ].map((text, index) => (
-          <ListItem key={text + "-" + index} disablePadding>
-            <ListItemButton className="font-bold">
-              <ListItemText className="font-bold" primary={text} />
-            </ListItemButton>
+          <ListItem key={index} disablePadding>
+            <Link
+              to={text.link}
+              spy={true}
+              smooth={true}
+              offset={50}
+              duration={500}
+            >
+              <ListItemButton className="font-bold">
+                <ListItemText className="font-bold" primary={text.title} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>

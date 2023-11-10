@@ -13,7 +13,7 @@ const Questions = () => {
       setExpanded(isExpanded ? panel : false);
     };
   return (
-    <>
+    <div id="faq">
       <Typography className="py-8">FAQ</Typography>
       <section id="faq" className="flex justify-center">
         <div className="md:w-6/12 mb-8">
@@ -114,7 +114,7 @@ const Questions = () => {
           </Accordion>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

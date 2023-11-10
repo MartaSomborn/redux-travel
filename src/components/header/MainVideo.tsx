@@ -2,7 +2,7 @@ import videoHoliday from "../../assets/beach.mp4";
 
 const MainVideo = () => {
   return (
-    <div className="h-full w-full relative">
+    <div id="main-video" className="h-full w-full relative">
       <div className=" absolute top-0 left-0 h-full w-full bg-[rgba(0,0,0,.4)]" />
       <video
         className="h-full w-full object-cover"

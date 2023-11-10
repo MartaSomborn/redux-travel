@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import people from "./data";
+import { useDispatch, useSelector } from "react-redux";
 import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
+import { getReview } from "../../../redux/ReviewSlice";
 
 const ReviewItem = () => {
   const [index, setIndex] = useState(0);
-  const { id, name, job, image, text } = people[index];
   const checkNumber = (number: number) => {
     if (number > people.length - 1) {
       return 0;
@@ -29,45 +30,39 @@ const ReviewItem = () => {
     });
   };
 
-  const minIndex = 0;
-  const maxIndex = people.length - 1;
+  const review = useSelector((state: any) => state.Review.items);
 
-  const getRandomPerson = () => {
-    const getRandomIntInclusive = (min: number, max: number) => {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive
-    };
+  const reviewValues = Object.values(review);
 
-    let randomIndex = getRandomIntInclusive(minIndex, maxIndex);
-    if (randomIndex === index) {
-      randomIndex = index + 1;
-    }
-    setIndex(checkNumber(randomIndex));
-  };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getReview());
+  }, []);
 
   return (
     <article className="Item">
-      <div className="img-container">
-        <img src={image} alt={name} className="person-img" />
-        <span className="quote-icon">
-          <FaQuoteRight />
-        </span>
-      </div>
-      <h4 className="author">{name}</h4>
-      <p className="job">{job}</p>
-      <p className="info">{text}</p>
-      <div className="button-container">
-        <button className="prev-btn" onClick={prevPerson}>
-          <FaChevronLeft />
-        </button>
-        <button className="next-btn" onClick={nextPerson}>
-          <FaChevronRight />
-        </button>
-      </div>
-      {/* <button className="random-btn" onClick={getRandomPerson}>
-        Get Random Review
-      </button> */}
+      {reviewValues.map((review: any, index: number) => (
+        <div key={index}>
+          <div className="img-container">
+            <img src={review.image} className="person-img" />
+            <span className="quote-icon">
+              <FaQuoteRight />
+            </span>
+          </div>
+          <h4 className="author">{review.name}</h4>
+          <p className="job">{review.job}</p>
+          <p className="info">{review.review}</p>
+          <div className="button-container">
+            <button className="prev-btn" onClick={prevPerson}>
+              <FaChevronLeft />
+            </button>
+            <button className="next-btn" onClick={nextPerson}>
+              <FaChevronRight />
+            </button>
+          </div>
+        </div>
+      ))}
     </article>
   );
 };

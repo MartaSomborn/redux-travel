@@ -1,7 +1,6 @@
 // import MenuIcon from "@mui/icons-material/Menu";
 import LogoSVG from "../../assets/travelLogo.svg";
 import HeaderMenuButton from "./HeaderMenuButton";
-import Mountain from "../../assets/winterMountain.jpg";
 import MainVideo from "./MainVideo";
 
 const Header = () => {

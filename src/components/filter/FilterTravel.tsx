@@ -8,7 +8,7 @@ import Button from "../UI/button/button/Button";
 const FilterTravel = () => {
   const [advancedFilter, setAdvancedFilter] = useState(false);
   return (
-    <div className="w-full h-2/3 text-[#4682A9]">
+    <div id="dream-destination" className="w-full h-2/3 text-[#4682A9]">
       {/* <div className=" flex justify-center gap-12 "> */}
       <div className="flex flex-col flex-wrap content-center gap-6 my-6">
         <label className="font-bold ">

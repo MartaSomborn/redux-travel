@@ -8,7 +8,7 @@ const Holiday = () => {
     (state: any) => state.PopularTravel.items
   );
 
-  const holidayTest = Object.values(popularDestination);
+  const holidayValues = Object.values(popularDestination);
 
   const isLoading = useSelector((state: any) => state.PopularTravel.isLoading);
 
@@ -18,7 +18,7 @@ const Holiday = () => {
     dispatch(getPopularDestination());
   }, []);
 
-  const popularDestinationList = holidayTest.map(
+  const popularDestinationList = holidayValues.map(
     (holiday: any, index: number) => (
       <HolidayItem
         key={index}
@@ -31,7 +31,10 @@ const Holiday = () => {
   );
 
   return (
-    <section className="w-11/12 border-red-600 my-8 mx-auto">
+    <section
+      id="magical-holiday"
+      className="w-11/12 border-red-600 my-8 mx-auto"
+    >
       <ul className="flex flex-wrap justify-center">
         {popularDestinationList}
       </ul>
